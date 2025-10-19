@@ -3,6 +3,8 @@
 
 extern "C" int getPerimeter(int*, int*);
 extern "C" int getArea(int*, int*);
+extern "C" int setLength(int, int*);
+extern "C" int setWidth(int, int*);
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -33,6 +35,59 @@ namespace rectangletest
 			Assert::AreEqual(32, area);
 
 		}
+		//task2
+		TEST_METHOD(TestSetLength_ValidInput)
+		{
+
+			int length = 50;
+
+			setLength(25, &length);
+			Assert::AreEqual(25, length);
+		}
+
+		TEST_METHOD(TestSetLength_MinBoundary)
+		{
+
+			int length = 50;
+			setLength(0, &length);
+
+			Assert::AreEqual(50, length);
+		}
+		TEST_METHOD(TestSetLength_MaxBoundary)
+		{
+
+			int length = 50;
+			setLength(100, &length);
+
+			Assert::AreEqual(50, length);
+		}
+		TEST_METHOD(TestSetWidth_ValidInput)
+		{
+
+			int width = 50;
+			setWidth(40, &width);
+
+
+			Assert::AreEqual(40, width);
+		}
+
+		TEST_METHOD(TestSetWidth_MinBoundary)
+		{
+
+			int width = 50;
+			setWidth(0, &width);
+
+			Assert::AreEqual(50, width);
+		}
+		TEST_METHOD(TestSetWidth_MaxBoundary)
+		{
+
+			int width = 50;
+			setWidth(100, &width);
+
+			Assert::AreEqual(50, width);
+		}
+
 
 	};
 }
